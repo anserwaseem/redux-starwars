@@ -26,6 +26,9 @@ export const charactersSlice = createSlice({
     },
   },
   extraReducers: {
+    [fetchCharactersFromAPI.pending]: (state, action) => {
+      state.loading = true;
+    },
     [fetchCharactersFromAPI.fulfilled]: (state, action) => {
       state.data = action.payload;
       state.loading = false;
